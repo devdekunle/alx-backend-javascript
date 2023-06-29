@@ -5,9 +5,8 @@ export default function signUpUser(firstName, lastName) {
         firstname: `${firstName}`,
         lastName: `${lastName}`,
       };
-      return resolve(userObject);
-    } else {
-      reject(new Error());
+      resolve(userObject);
     }
+    reject(new Error());
   });
 }

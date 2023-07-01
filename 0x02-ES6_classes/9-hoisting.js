@@ -1,11 +1,11 @@
 export class HolbertonClass {
   constructor(year, location) {
-    if (typeof year !== "number") {
-        throw new Error("Year must be a number");
+    if (typeof year !== 'number') {
+      throw new Error('Year must be a number');
     }
     this._year = year;
-    if (typeof location !== "string"){
-        throw new Error("Location must be a string")
+    if (typeof location !== 'string') {
+      throw new Error('Location must be a string');
     }
     this._location = location;
   }
@@ -21,21 +21,19 @@ export class HolbertonClass {
 
 export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
-    if (typeof firstName !== "string"){
-        throw new Error("First Name must be a string");
+    if (typeof firstName !== 'string') {
+      throw new Error('First Name must be a string');
     }
     this._firstName = firstName;
-    if (typeof lastName !== "string") {
-        throw new Error("Last Name must be a atring");
+    if (typeof lastName !== 'string') {
+      throw new Error('Last Name must be a atring');
     }
     this._lastName = lastName;
     if (holbertonClass instanceof HolbertonClass) {
-        this._holbertonClass = holbertonClass;
+      this._holbertonClass = holbertonClass;
+    } else {
+      throw new Error('holbertonClass must be an instance of HolbertonClass');
     }
-    else {
-        throw new Error("holbertonClass must be an instance of HolbertonClass");
-    }
-
   }
 
   get fullName() {

@@ -10,7 +10,7 @@ const app = http.createServer(async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   if (req.url === '/students') {
-    res.end(`This is the list of our students ${await countStudents(database)}`);
+    res.end(`This is the list of our students\n${await countStudents(database)}`);
   } else {
     res.end('Hello Holberton School!');
   }

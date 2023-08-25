@@ -26,14 +26,18 @@ function countStudents(path) {
           fields[field].push(student[0]);
         }
       }
+      const studentsDetails = [];
       for (const field in fields) {
         if (fields[field]) {
           const list = fields[field];
           const count = list.length;
+
           console.log(`Number of students in ${field}: ${count}. List: ${list.join(', ')}`);
+          studentsDetails.push(`Number of students in ${field}: ${count}. List: ${list.join(', ')}`);
         }
       }
-      resolve(); // Resolve the promise here, since the data processing is done
+      studentsDetails.unshift(`Number of students: ${newLines.length}`);
+      resolve(studentsDetails.join('\n')); // Resolve the promise here, since the data processing is done
     });
   });
 }

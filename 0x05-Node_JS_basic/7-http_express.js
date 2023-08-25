@@ -22,3 +22,5 @@ app.get('/students', async (req, res) => {
 app.listen(port, host, () => {
   console.log('...');
 });
+
+module.exports = app;

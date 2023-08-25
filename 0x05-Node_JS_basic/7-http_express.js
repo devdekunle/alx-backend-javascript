@@ -7,10 +7,17 @@ const port = 1245;
 const host = '127.0.0.1';
 
 app.get('/', (req, res) => {
+  res.statusCode = 200;
   res.send('Hello Holberton School!');
 });
 app.get('/students', async (req, res) => {
-  res.send(`This is the list of our students\n${await countStudents(database)}`);
+  try {
+    res.statusCode = 200;
+    res.send(`This is the list of our students\n${await countStudents(database)}`);
+  } catch (error) {
+    res.statusCode = 500;
+    res.send(`This is the list of our students\n${error.message}`);
+  }
 });
 app.listen(port, host, () => {
   console.log('...');
